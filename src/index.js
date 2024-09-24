@@ -20,7 +20,16 @@ function addTradingCardList(){
                 <li>SPECIAL-DEFENSE: ${pokemon.stats['4'].base_stat}</li>
                 <li>SPEED: ${pokemon.stats['5'].base_stat}</li>
             </ul>
+            <h3 class="card--title">Games</h3>
         `
+        let gamesList = document.createElement('ul')
+        gamesList.classList.add('card--text')
+        for(game of pokemon.game_indices) {
+            let game_version = document.createElement('li')
+            game_version.innerText = game.version.name.toUpperCase()
+            gamesList.appendChild(game_version)
+        }
+        newPokemon.appendChild(gamesList)
         cardListHTML.appendChild(newPokemon)
     }
     
